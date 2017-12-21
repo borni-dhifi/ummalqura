@@ -22,6 +22,14 @@ Features:
 
 -  give the current day both in Hijri and Gregorian
 
+
+Install:
+-------
+
+sudo pip3 install git+https://github.com/borni-dhifi/ummalqura.git
+
+
+
 Usage
 -----
  
