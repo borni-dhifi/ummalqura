@@ -6,6 +6,9 @@ it will give you the day name in arabic and english , and the month name in Hijr
 
 Thanks for Khalid Al-hussayen : https://pypi.python.org/pypi/umalqurra/0.2 
 
+Install
+-------
+	sudo pip3 install ummalqura
 
 Features: 
 ---------
