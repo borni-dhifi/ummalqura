@@ -8,7 +8,7 @@ You can query for the current day in both Hijri and Gregorian
 '''
 __author__ = 'Khalid & Borni'
 from ummalqura.hijri import Umalqurra
-from datetime import date
+from datetime import date, datetime
 
 DAYS = {1: 30,
         2: 29,
@@ -135,13 +135,14 @@ class HijriDate:
         return hijri_date.year
 
     @classmethod
-    def get_hijri_date(self, date):
+    def get_hijri_date(self, date_str, separator='-'):
         """Convert georging date to hijri date.
-        :param date: gregorian date
+        :param date: <str> gregorian date
         :return hijri date as a string value
         """
-        hijri_date = HijriDate(date.year, date.month, date.day, gr=True)
-        return str(hijri_date.year).zfill(4) + '-' + str(hijri_date.month).zfill(2) + '-' + str(hijri_date.day).zfill(2)
+        date_str = datetime.strptime(str(date_str), '%Y-%m-%d').date()
+        hijri_date = HijriDate(date_str.year, date_str.month, date_str.day, gr=True)
+        return str(hijri_date.year).zfill(4) + separator + str(hijri_date.month).zfill(2) + separator + str(hijri_date.day).zfill(2)
 
     @classmethod
     def get_georing_date(self,str_hijri_date):
@@ -154,4 +155,5 @@ class HijriDate:
         day = int(str_hijri_date[8:10])
         res_date = Umalqurra().hijri_to_gregorian(year, month, day)
         return date(res_date[0], res_date[1], res_date[2])
+
 
